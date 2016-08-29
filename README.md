@@ -26,13 +26,13 @@ Now, that you have the repo, we need to deploy it somewhere on the internet. We 
 
 Go the heroku.com and click the "Sign Up" button at the top right corner. After you sign up, the most important thing to remember is your username and password.
 
-## Step 3 - Download and Install Heroku Toolbelt
+## Step 3 - Download and Install Heroku Command Line Interface (CLI)
 
-Heroku Toolbelt is a command-line tool that will allow us to deploy our server application directly to Heroku servers.
+Heroku Command Line Interface (CLI) is a command-line tool that will allow us to deploy our server application directly to Heroku servers. (This tool used to be called Heroku Toolbelt, so don't get confused if you see this name somewhere.)
 
-https://toolbelt.heroku.com/ - the actual installation is different for each OS.
+Go to https://devcenter.heroku.com/articles/heroku-command-line and install Heroku CLI by following the instructions for the Operating System you're using.
 
-## Step 4 - Log Into Heroku Using Heroku Toolbelt
+## Step 4 - Log Into Heroku Using Heroku CLI
 
 Run the following in your terminal (you only actually type the FIRST line below - Heroku prompts you for the rest):
 
@@ -52,7 +52,7 @@ The web application you deploy to Heroku will have the URL in the form of http:/
 
 **NOTE! From this step forward, make sure you are located inside the `restaurant-server` directory! If not, navigate to that directory using `cd restaurant-server`.**
 
-Type the following in the Command Prompt (Windows) or Terminal app (Mac) to have Heroku generate a random subdomain name for your application:
+Type the following command to have Heroku generate a random subdomain name for your application:
 
 ```bash
 heroku create
@@ -86,7 +86,7 @@ Now, we need to upload this repository to Heroku through `git`. Type the followi
 git push heroku master
 ```
 
-At this point Heroku is looking at the contents of the repository you pushed to it and once it realizes that it's a Ruby on Rails application (based on the directory structure and some other obvious signs), it gladly DEPLOYS the application for you somewhere in the cloud _under the domain name you chose before_.
+At this point Heroku is looking at the contents of the repository you pushed to it and once it realizes that it's a Ruby on Rails application (based on the directory structure and some other obvious signs), it gladly DEPLOYS the application for you somewhere in the cloud _under the domain name you chose before_. You should see a lot of `remote` logs scroll by as Heroku deploys your application.
 
 We are not finished yet, but if you go to http://YOUR-CHOSEN-SUBDOMAIN.herokuapp.com/menu_items.json, you should at least see an "Internal Server Error" with a 500 code. The reason you would be seeing an error at this point is because the application is trying to retrieve data from a database which has not been set up as of yet.
 
@@ -127,6 +127,8 @@ Login.create! identification: "SOME_USERNAME", password: "SOME_PASSWORD",  passw
 ```
 
 You can copy/paste this line and then replace SOME_USERNAME and SOME_PASSWORD with whatever username/password you'd like to use when you log into the administrative portion of our restaurant web application.
+
+After the username/password is set, type `exit` to quit the rails console.
 
 **That's it! DONE! You are not ready use this remote server for your copy of the restaurant web application.**
 
