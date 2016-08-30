@@ -24,7 +24,7 @@ git clone https://github.com/jhu-ep-coursera/restaurant-server.git
 
 Now, that you have the repo, we need to deploy it somewhere on the internet. We will be using Heroku. Heroku is a cloud Platform-as-a-Service (PaaS) and it's free (they of course have paid plans, but we will be using the free plan).
 
-Go the heroku.com and click the "Sign Up" button at the top right corner. After you sign up, the most important thing to remember is your username and password.
+Go to [heroku.com](Heroku.com) and click the "Sign Up" button at the top right corner. After you sign up, the most important thing to remember is your username and password.
 
 ## Step 3 - Download and Install Heroku Command Line Interface (CLI)
 
