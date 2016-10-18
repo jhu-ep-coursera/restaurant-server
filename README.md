@@ -130,7 +130,7 @@ You can copy/paste this line and then replace SOME_USERNAME and SOME_PASSWORD wi
 
 After the username/password is set, type `exit` to quit the rails console.
 
-**That's it! DONE! You are not ready use this remote server for your copy of the restaurant web application.**
+**That's it! DONE! You are now ready to use this remote server for your copy of the restaurant web application.**
 
 ## Want To Learn How To Make This Ruby on Rails Application Yourself?
 
