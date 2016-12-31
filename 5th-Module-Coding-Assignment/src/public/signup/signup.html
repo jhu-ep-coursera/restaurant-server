@@ -1,0 +1,53 @@
+<div class="container">
+  <h2 class="text-center">Sign Up</h2>
+  <div class="row">
+    <form id="sign-up-form" ng-submit="signUpCtrl.submitForm()" name="signUpForm" class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2" novalidate>
+      <div class="form-group">
+        <label class="control-label" for="firstName">First name *</label>
+        <input name="firstName" type="text" class="form-control form-validate-field" placeholder="Type your first name here" ng-model="signUpCtrl.user.firstName" required>
+        <span class="label label-danger" ng-if="signUpForm.firstName.$error.required && (signUpForm.firstName.$touched || signUpForm.$submitted)">
+          This field is required
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="lastName">Last name *</label>
+        <input name="lastName" type="text" class="form-control form-validate-field" placeholder="Type your last name here" ng-model="signUpCtrl.user.lastName" required>
+        <span class="label label-danger" ng-if="signUpForm.lastName.$error.required && (signUpForm.lastName.$touched || signUpForm.$submitted)">
+          This field is required
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="emailAddress">Email *</label>
+        <input name="emailAddress" type="email" class="form-control form-validate-field" placeholder="Type your email here" ng-model="signUpCtrl.user.email" required>
+        <span class="label label-danger" ng-if="signUpForm.emailAddress.$error.required && (signUpForm.emailAddress.$touched || signUpForm.$submitted)">
+          This field is required
+        </span>
+        <span class="label label-danger" ng-if="signUpForm.emailAddress.$error.email && (signUpForm.emailAddress.$touched || signUpForm.$submitted)">
+          Email address is not valid
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="phoneNumber">Phone *</label>
+        <input name="phoneNumber" type="text" class="form-control form-validate-field" placeholder="Phone ####-####" ng-model="signUpCtrl.user.phone" pattern="(\d{4})-(\d{4})" required>
+        <span class="label label-danger" ng-if="signUpForm.phoneNumber.$error.required && (signUpForm.phoneNumber.$touched || signUpForm.$submitted)">
+          This field is required
+        </span>
+        <span class="label label-danger" ng-if="signUpForm.phoneNumber.$error.pattern && (signUpForm.phoneNumber.$touched || signUpForm.$submitted)">
+          Phone number pattern is not valid
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="menuNumber">What's your favorite menu number?</label>
+        <input name="menuNumber" type="text" class="form-control" ng-blur="signUpCtrl.checkMenuNumber()" placeholder="Type your favorite menu number here" ng-model="signUpCtrl.user.menuNumber">
+        <span class="label label-danger" ng-if="!signUpCtrl.validMenuNumber && (signUpForm.menuNumber.$touched || signUpForm.$submitted)">
+          No such menu number exists
+        </span>
+      </div>
+      <input type="submit" class="btn btn-success" value="Submit">
+    </form>    
+  </div>
+  <div id="alert-user-saved" class="alert alert-success alert-dismissible" ng-if="signUpCtrl.userInfoSaved" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Your information has been saved
+  </div>
+</div>

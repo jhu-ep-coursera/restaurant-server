@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="alert alert-info" ng-if="myInfoCtrl.notSignedUp">
+    <h2>Not Signed Up Yet. <a ui-sref="public.signup"><strong>Sign up Now!</strong></a></h2>
+  </div>
+  <div id="user-info-list" ng-if="!myInfoCtrl.notSignedUp">
+    <h2>Profile</h2>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h4 class="list-group-item-heading">First Name</h4>
+        <p class="list-group-item-text">{{ myInfoCtrl.user.firstName }}</p>
+      </li>
+      <li class="list-group-item">
+        <h4 class="list-group-item-heading">Last Name</h4>
+        <p class="list-group-item-text">{{ myInfoCtrl.user.lastName }}</p>
+      </li>
+      <li class="list-group-item">
+        <h4 class="list-group-item-heading">Email</h4>
+        <p class="list-group-item-text">{{ myInfoCtrl.user.email }}</p>
+      </li>
+      <li class="list-group-item">
+        <h4 class="list-group-item-heading">Phone</h4>
+        <p class="list-group-item-text">{{ myInfoCtrl.user.phone }}</p>
+      </li>
+      <li class="list-group-item">
+        <h4 class="list-group-item-heading">Favorite menu</h4>
+        <p class="list-group-item-text">{{ myInfoCtrl.user.menuItem.name }}: {{ myInfoCtrl.user.menuItem.description }}</p>
+        <img class="img-responsive" width="250" height="150" ng-src="{{ myInfoCtrl.basePath }}/images/{{ myInfoCtrl.user.menuItem.short_name }}.jpg" alt="{{ myInfoCtrl.user.menuItem.name}}" />
+      </li>
+    </ul>
+  </div>
+</div>
