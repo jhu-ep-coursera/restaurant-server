@@ -1,31 +1,47 @@
 <div class="container">
-  <div class="alert alert-info" ng-if="myInfoCtrl.notSignedUp">
-    <h2>Not Signed Up Yet. <a ui-sref="public.signup"><strong>Sign up Now!</strong></a></h2>
+  <h2>My information</h2>
+<!--
+  <h2 id="menu-categories-title" class="text-center">Menu Categories</h2>
+  <div class="text-center">
+    Substituting white rice with brown rice or fried rice after 3:00pm will be $1.50 for a pint and $2.50 for a quart.
   </div>
-  <div id="user-info-list" ng-if="!myInfoCtrl.notSignedUp">
-    <h2>Profile</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <h4 class="list-group-item-heading">First Name</h4>
-        <p class="list-group-item-text">{{ myInfoCtrl.user.firstName }}</p>
-      </li>
-      <li class="list-group-item">
-        <h4 class="list-group-item-heading">Last Name</h4>
-        <p class="list-group-item-text">{{ myInfoCtrl.user.lastName }}</p>
-      </li>
-      <li class="list-group-item">
-        <h4 class="list-group-item-heading">Email</h4>
-        <p class="list-group-item-text">{{ myInfoCtrl.user.email }}</p>
-      </li>
-      <li class="list-group-item">
-        <h4 class="list-group-item-heading">Phone</h4>
-        <p class="list-group-item-text">{{ myInfoCtrl.user.phone }}</p>
-      </li>
-      <li class="list-group-item">
-        <h4 class="list-group-item-heading">Favorite menu</h4>
-        <p class="list-group-item-text">{{ myInfoCtrl.user.menuItem.name }}: {{ myInfoCtrl.user.menuItem.description }}</p>
-        <img class="img-responsive" width="250" height="150" ng-src="{{ myInfoCtrl.basePath }}/images/{{ myInfoCtrl.user.menuItem.short_name }}.jpg" alt="{{ myInfoCtrl.user.menuItem.name}}" />
-      </li>
-    </ul>
+
+  <menu-category ng-repeat="menuCategory in menuCtrl.menuCategories"
+                 category="menuCategory">
+  </menu-category>
+-->
+  <div ng-if="myInfoCtrl.signedUp">
+    <div class="row">
+      <div class="col-md-6">
+        <p>First name: {{ myInfoCtrl.firstName }}</p>
+        <p>Last name: {{ myInfoCtrl.lastName }}</p>
+        <p>E-mail address: {{ myInfoCtrl.email }}</p>
+        <p>Phone number: {{ myInfoCtrl.phone }}</p>
+      </div>
+      <div class="col-md-6">
+        <h3>Favorite dish</h3>
+        <div ng-if="myInfoCtrl.favoriteMenuItem">
+          <img ng-src="images/menu/{{ myInfoCtrl.favoriteMenuItem.category_short_name }}/{{ myInfoCtrl.favoriteMenuItem.category_short_name }}.jpg" class="pull-right">
+          <h4>{{ myInfoCtrl.favoriteMenuItem.name }} [{{ myInfoCtrl.favoriteDish }}]</h4>
+          <p>{{ myInfoCtrl.favoriteMenuItem.description }}</p>
+        </div>
+        <div ng-show="!myInfoCtrl.favoriteMenuItem">
+          <p>(You entered an invalid short name for your favorite dish when signing up.)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-if="!myInfoCtrl.signedUp">
+    <p>Not Signed Up Yet.</p>
+    <p><a ui-sref="public.signUp" class="btn btn-warning">Sign up Now!</a></p>
+  </div>
+
+  <div class="alert alert-warning">
+    <p>This page should show signed up user's information. To sign up for
+    (fake) newsletter, click button Sign up Now! above or click menu option
+    Sign up.</p>
+    <p>Signing up only saves information to "page's" memory, i.e. if you reload
+      page in browser the data will be forgotten.</p>
   </div>
 </div>

@@ -1,17 +1,27 @@
-(function() {
-  'use strict';
+(function () {
+  "use strict";
 
-  angular
-    .module('public')
-    .controller('MyInfoController', MyInfoController);
+  angular.module('public')
+  .controller('MyInfoController', MyInfoController);
 
-  MyInfoController.$inject = ['SessionStorage', 'ApiPath'];
+  MyInfoController.$inject = ['user'];
+  function MyInfoController(user) {
+    var $ctrl = this;
+    $ctrl.signedUp = false;
+    $ctrl.favoriteMenuItem;
 
-  function MyInfoController(SessionStorage, ApiPath) {
-    var myInfoCtrl = this;
-    
-    myInfoCtrl.basePath = ApiPath;
-    myInfoCtrl.user = SessionStorage.getObject('userinfo', '{}');
-    myInfoCtrl.notSignedUp = angular.equals({}, myInfoCtrl.user);
+    if(user) {
+      $ctrl.signedUp = true;
+      $ctrl.firstName = user.firstName;
+      $ctrl.lastName = user.lastName;
+      $ctrl.email = user.email;
+      $ctrl.phone = user.phone;
+      $ctrl.favoriteDish = user.favoriteDish;
+      $ctrl.favoriteMenuItem = user.favoriteMenuItem;
+    }
+    else {
+      $ctrl.signedUp = false;
+    }
   }
+
 })();
