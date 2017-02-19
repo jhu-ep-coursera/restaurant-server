@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>My information</h2>
+<!--
+  <h2 id="menu-categories-title" class="text-center">Menu Categories</h2>
+  <div class="text-center">
+    Substituting white rice with brown rice or fried rice after 3:00pm will be $1.50 for a pint and $2.50 for a quart.
+  </div>
+
+  <menu-category ng-repeat="menuCategory in menuCtrl.menuCategories"
+                 category="menuCategory">
+  </menu-category>
+-->
+  <div ng-if="myInfoCtrl.signedUp">
+    <div class="row">
+      <div class="col-md-6">
+        <p>First name: {{ myInfoCtrl.firstName }}</p>
+        <p>Last name: {{ myInfoCtrl.lastName }}</p>
+        <p>E-mail address: {{ myInfoCtrl.email }}</p>
+        <p>Phone number: {{ myInfoCtrl.phone }}</p>
+      </div>
+      <div class="col-md-6">
+        <h3>Favorite dish</h3>
+        <div ng-if="myInfoCtrl.favoriteMenuItem">
+          <img ng-src="images/menu/{{ myInfoCtrl.favoriteMenuItem.category_short_name }}/{{ myInfoCtrl.favoriteMenuItem.category_short_name }}.jpg" class="pull-right">
+          <h4>{{ myInfoCtrl.favoriteMenuItem.name }} [{{ myInfoCtrl.favoriteDish }}]</h4>
+          <p>{{ myInfoCtrl.favoriteMenuItem.description }}</p>
+        </div>
+        <div ng-show="!myInfoCtrl.favoriteMenuItem">
+          <p>(You entered an invalid short name for your favorite dish when signing up.)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-if="!myInfoCtrl.signedUp">
+    <p>Not Signed Up Yet.</p>
+    <p><a ui-sref="public.signUp" class="btn btn-warning">Sign up Now!</a></p>
+  </div>
+
+  <div class="alert alert-warning">
+    <p>This page should show signed up user's information. To sign up for
+    (fake) newsletter, click button Sign up Now! above or click menu option
+    Sign up.</p>
+    <p>Signing up only saves information to "page's" memory, i.e. if you reload
+      page in browser the data will be forgotten.</p>
+  </div>
+</div>

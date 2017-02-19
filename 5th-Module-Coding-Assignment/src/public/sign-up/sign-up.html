@@ -1,0 +1,88 @@
+<style>
+  .ng-touched.ng-invalid {
+    background-color:  pink;
+  }
+  .ng-touched.ng-valid {
+    background-color: lightgreen;
+  }
+</style>
+<div class="container">
+  <h2>Sign up</h2>
+<!--
+  <h2 id="menu-categories-title" class="text-center">Menu Categories</h2>
+  <div class="text-center">
+    Substituting white rice with brown rice or fried rice after 3:00pm will be $1.50 for a pint and $2.50 for a quart.
+  </div>
+
+  <menu-category ng-repeat="menuCategory in menuCtrl.menuCategories"
+                 category="menuCategory">
+  </menu-category>
+-->
+  <form action="#" name="signUpForm" novalidate>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Name and E-mail address are mandatory.</p>
+
+        <p>
+          <label for="firstName">First name:</label>
+          <input type="text" name="firstName" id="firstName"
+            ng-model="signUpCtrl.firstName" minlength="2" class="form-control" required>
+          <span ng-if="(signUpForm.firstName.$error.minlength || signUpForm.firstName.$error.required) && signUpForm.firstName.$touched"
+            style="color: white; background-color: red">First name must be at least 2 characters</span>
+        </p>
+
+        <p>
+          <label for="lastName">Last name:</label>
+          <input type="text" name="lastName" id="lastName"
+            ng-model="signUpCtrl.lastName" minlength="2" class="form-control" required>
+          <span ng-if="(signUpForm.lastName.$error.minlength || signUpForm.lastName.$error.required) && signUpForm.lastName.$touched"
+            style="color: white; background-color: red">Last name must be at least 2 characters</span>
+        </p>
+
+        <p>
+          <label for="email">E-mail address:</label>
+          <input type="email" name="email" id="email"
+            ng-model="signUpCtrl.email" minlength="2" class="form-control" required>
+          <span ng-if="(signUpForm.email.$invalid || signUpForm.email.$error.required) && signUpForm.email.$touched"
+            style="color: white; background-color: red">E-mail address is invalid</span>
+        </p>
+
+        <p>
+          <label for="phone">Phone number (American style) [optional]:</label>
+          <input type="phone" name="phone" id="phone" placeholder="###-###-###"
+            ng-model="signUpCtrl.phone" pattern="(\d{3})-(\d{3})-(\d{4})" class="form-control">
+          <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched"
+            style="color: white; background-color: red">Phone number must only contain numbers, spaces, dashes and parenthesis</span>
+        </p>
+
+        <p>
+          <label for="favoriteDish">Favorite dish:</label>
+          <input type="text" name="favoriteDish" id="favoriteDish" placeholder="Enter short name of favorite dish"
+            ng-model="signUpCtrl.favoriteDish" minlength="2" ng-maxlength="4" class="form-control">
+          <span ng-if="(signUpForm.favoriteDish.$error.minlength || signUpForm.favoriteDish.$error.minlength) && signUpForm.favoriteDish.$touched"
+            style="color: white; background-color: red">Short name of dish is 1-2 letters and 1-2 numbers</span>
+          <span ng-if="signUpCtrl.registrationSuccess && !signUpCtrl.favoriteDishFound"
+            style="color:white; background-color: red">No such menu number exists! ;-(</span>
+        </p>
+        <p><button class="btn btn-primary pull-right" ng-disabled="signUpForm.$invalid"
+          ng-click="signUpCtrl.signUp($event)">Sign up</button></p>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-success" ng-if="signUpCtrl.registrationSuccess">
+          <div class="panel-heading">Success!!</div>
+          <div class="panel-body" style="color: green">
+            <p>Sign up succeded!</p>
+
+          </div>
+        </div>
+
+        <div class="alert alert-warning">Data entered into form on this page will only be used for this session, i.e.
+          is not saved beyond your browser's current session. This is, by all means, a solution to an assignment. ;-)
+        </div>
+      </div>
+
+<!--      <p>Test value: {{ signUpCtrl.testValue }}</p>-->
+    </div>
+  </form>
+</div>
