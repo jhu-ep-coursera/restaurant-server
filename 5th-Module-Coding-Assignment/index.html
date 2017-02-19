@@ -25,8 +25,7 @@
             </a>
 
             <div class="navbar-brand">
-              <a href="index.html"><h1>David Chu's China Bistro
-                <small> (Kilted Viking's solution)</small></h1></a>
+              <a href="index.html"><h1>David Chu's China Bistro</h1></a>
               <p>
               <img src="images/star-k-logo.png" alt="Kosher certification">
               <span>Kosher Certified</span>
@@ -51,25 +50,17 @@
                 <a ui-sref="public.menu">
                   <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
               </li>
-              <li id="navMenuButton" ui-sref-active="active">
-              <!--
-                <a href="#">
-                  <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> About</a>
-              -->
-                 <a ui-sref="public.myInfo">
-                  <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> My info</a>
+              <li ui-sref-active="active">
+                <a ui-sref="public.myinfo">
+                  <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> My Info</a>
               </li>
-              <li id="navMenuButton" ui-sref-active="active">
-              <!--
-                <a href="#">
-                  <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Awards</a>
-              -->
-                 <a ui-sref="public.signUp">
-                  <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Sign up</a>
+              <li ui-sref-active="active">
+                <a ui-sref="public.signup">
+                  <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Sign Up</a>
               </li>
               <li id="phone" class="hidden-xs">
-                <a href="tel:410-XXX-5008">
-                  <span>410-XXX-5008</span></a><div>* We DON'T Deliver ;-)</div>
+                <a href="tel:410-602-5008">
+                  <span>410-602-5008</span></a><div>* We Deliver</div>
               </li>
             </ul><!-- #nav-list -->
           </div><!-- .collapse .navbar-collapse -->
@@ -103,9 +94,9 @@
           </section>
           <section id="address" class="col-sm-4">
             <span>Address:</span><br>
-            7105 Non-existant road<br>
-            Baltimore, MD 29292
-            <p>* Delivery area within 0 miles, with minimum order of $20 plus $3 charge for all deliveries.</p>
+            7105 Reisterstown Road<br>
+            Baltimore, MD 21215
+            <p>* Delivery area within 3-4 miles, with minimum order of $20 plus $3 charge for all deliveries.</p>
             <hr class="visible-xs">
           </section>
           <section id="testimonials" class="col-sm-4">
@@ -133,6 +124,7 @@
     <script src="src/common/loading/loading.component.js"></script>
     <script src="src/common/loading/loading.interceptor.js"></script>
     <script src="src/common/menu.service.js"></script>
+    <script src="src/common/myinfo.service.js"></script>
 
     <!-- Public Module -->
     <script src="src/public/public.module.js"></script>
@@ -141,16 +133,13 @@
     <script src="src/public/menu-category/menu-category.component.js"></script>
     <script src="src/public/menu-items/menu-items.controller.js"></script>
     <script src="src/public/menu-item/menu-item.component.js"></script>
-
-    <!-- Load files for my solution -->
-    <script src="src/common/users.service.js"></script>
-    <script src="src/public/sign-up/sign-up.controller.js"></script>
-    <script src="src/public/my-info/my-info.controller.js"></script>
-    <!-- Made changes to src/common/menu.service.js as well -->
+    <script src="src/public/signup/signup.controller.js"></script>
+    <script src="src/public/myinfo/myinfo.controller.js"></script>
 
     <!-- ADMIN SITE -->
 
     <!--Application files -->
 
   </body>
+
 </html>

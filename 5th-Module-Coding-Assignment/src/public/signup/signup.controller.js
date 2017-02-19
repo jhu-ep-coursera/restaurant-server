@@ -1,44 +1,39 @@
-(function() {
-  'use strict';
+(function () {
+"use strict";
 
-  angular
-    .module('public')
-    .controller('SignUpController', SignUpController);
+angular.module('public')
+.controller('SignUpController', SignUpController);
 
-  SignUpController.$inject = ['$scope', 'MenuService', 'SessionStorage'];
+SignUpController.$inject = ['MenuService', 'MyInfoService'];
+function SignUpController(MenuService, MyInfoService) {
+  var $ctrl = this;
+  $ctrl.info = {};
 
-  function SignUpController($scope, MenuService, SessionStorage) {
-    var signUpCtrl = this;
-
-    signUpCtrl.user = {};
-    signUpCtrl.userInfoSaved = false;
-    signUpCtrl.validMenuNumber = false;
-
-    signUpCtrl.checkMenuNumber = function() {
-      var shortName = signUpCtrl.user.menuNumber ? signUpCtrl.user.menuNumber.toUpperCase() : '';
-      MenuService.getMenuItemsByShortName(shortName)
+  $ctrl.submit = function() {
+      MenuService.getMenuItem($ctrl.info.favorite)
         .then(function(response) {
-          signUpCtrl.user.menuItem = response;
-          signUpCtrl.validMenuNumber = true;
+          $ctrl.invalidFavorite = false;
+          $ctrl.submitted = true;
+          MyInfoService.setInfo($ctrl.info);
         })
-        .catch(function(response) {
-          signUpCtrl.validMenuNumber = false;
+        .catch(function() {
+          $ctrl.invalidFavorite = true;
+        });
+
+
+    }
+
+    $ctrl.validateFavorite = function() {
+      MenuService.getMenuItem($ctrl.info.favorite)
+        .then(function () {
+          $ctrl.invalidFavorite = false;
+        })
+        .catch(function() {
+          $ctrl.invalidFavorite = true;
         });
     }
 
-    signUpCtrl.submitForm = function() {
-      if ($scope.signUpForm.$valid && signUpCtrl.validMenuNumber) {
-        delete signUpCtrl.user.menuNumber;
-        SessionStorage.storeObject('userinfo', signUpCtrl.user);
-        signUpCtrl.userInfoSaved = true;
-        $scope.signUpForm.$setPristine();
-        $scope.signUpForm.$setUntouched();
-        signUpCtrl.user = {};
-      } else {
-        if (signUpCtrl.userInfoSaved) {
-          signUpCtrl.userInfoSaved = false;
-        }
-      }
-    }
-  }
+  };
+
+
 })();
