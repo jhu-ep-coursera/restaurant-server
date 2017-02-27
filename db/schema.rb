@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20160731205241) do
     t.integer  "category_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.string   "image_url"
     t.text     "image_base64_encoded"
   end
 
