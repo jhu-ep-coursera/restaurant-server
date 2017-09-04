@@ -2,7 +2,7 @@
 "use strict";
 
 angular.module('common', [])
-.constant('ApiPath', 'http://www.davidchuschinabistro.com')
+.constant('ApiPath', 'https://www.davidchuschinabistro.com')
 .config(config);
 
 config.$inject = ['$httpProvider'];
