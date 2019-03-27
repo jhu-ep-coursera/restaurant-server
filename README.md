@@ -132,6 +132,11 @@ After the username/password is set, type `exit` to quit the rails console.
 
 **That's it! DONE! You are now ready to use this remote server for your copy of the restaurant web application.**
 
+## Short Summary of the APIs
+
+### All categories:
+[https://davids-restaurant.herokuapp.com/categories.json](https://davids-restaurant.herokuapp.com/categories.json)
+
 ## Want To Learn How To Make This Ruby on Rails Application Yourself?
 
 In this class, we are not covering any server-side development. However, if you'd like to acquire the skills necessary to produce an application like this on your own, check out the first 2 courses in this specialization: [Ruby on Rails: An Introduction](https://www.coursera.org/learn/ruby-on-rails-intro) and [Rails with Active Record and Action Pack](https://www.coursera.org/learn/rails-with-active-record). Those courses are taught by [Kalman Hazins](https://www.coursera.org/instructor/kalman-hazins), who developed this restaurant-server app.
