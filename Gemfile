@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.6.1"
+ruby "2.6.3"
 
 gem 'rails', '~> 4.2.11'
 gem 'sassc-rails'
@@ -24,3 +24,4 @@ end
 
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails_api_auth'
+gem 'nokogiri', '>= 1.10.4'
