@@ -1,3 +1,3 @@
-class MenuItem < ActiveRecord::Base
- 	belongs_to :category
+class MenuItem < ApplicationRecord
+ 	belongs_to :category, optional: true
 end

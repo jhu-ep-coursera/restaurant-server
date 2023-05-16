@@ -1,4 +1,4 @@
-class CreateMenuItems < ActiveRecord::Migration
+class CreateMenuItems < ActiveRecord::Migration[4.2]
   def change
     create_table :menu_items do |t|
       t.string :short_name
