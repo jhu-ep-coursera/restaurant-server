@@ -1,6 +1,6 @@
 # Restaurant Server
 
-## What is this for?
+## What is this for? 
 
 In the previous course [HTML, CSS, and Javascript for Web Developers](https://www.coursera.org/learn/html-css-javascript-for-web-developers), since our web site did not have a feature to update the menu of the restaurant, we could get away with having a central server to request menu data for all the students in the class. However, in this course ([Single Page Web Applications with AngularJS](https://www.coursera.org/learn/single-page-web-apps-with-angularjs)), we are adding a feature for the owners of the restaurant to be able to update the menu. Since each deployed application will be able to update the data on the server, we can no longer get away with having a central one. Each student will have to set up their own server with their copy of the data to mess with.
 
