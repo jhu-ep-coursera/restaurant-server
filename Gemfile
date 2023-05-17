@@ -30,3 +30,5 @@ end
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails_api_auth'
 gem 'nokogiri', '>= 1.10.4'
+
+gem 'sprockets', '~> 3.7.2'
